@@ -3,7 +3,6 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryList = document.querySelector('.gallery');
 
-
 function createGalleryMarkup(items) {
   return items
     .map(
@@ -32,7 +31,6 @@ function renderGallery(gallery) {
 renderGallery(galleryList);
 
 galleryList.addEventListener('click', onGalleryItemClick);
-document.addEventListener('keydown', onEscapeKeyPress);
 
 let instance;
 
@@ -63,9 +61,13 @@ function openLightbox(ImageURL) {
     <img src="${ImageURL}" width="800" height="600">
   `);
   instance.show();
+
+  document.addEventListener('keydown', onEscapeKeyPress);
 }
 
 
 function closeLightbox() {
   instance.close();
+
+  document.removeEventListener('keydown', onEscapeKeyPress);
 }
