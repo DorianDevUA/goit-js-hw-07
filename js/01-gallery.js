@@ -21,19 +21,16 @@ function createGalleryMarkup(items) {
     .join('');
 }
 
-
 function renderGallery(gallery) {
   const markup = createGalleryMarkup(galleryItems);
   gallery.insertAdjacentHTML('beforeend', markup);
 }
-
 
 renderGallery(galleryList);
 
 galleryList.addEventListener('click', onGalleryItemClick);
 
 let instance;
-
 
 function onGalleryItemClick(evt) {
   evt.preventDefault();
@@ -47,14 +44,12 @@ function onGalleryItemClick(evt) {
   openLightbox(largeImageURL);
 }
 
-
 function onEscapeKeyPress(evt) {
   const isLightboxVisible = instance.visible();
   if (evt.code === 'Escape' && isLightboxVisible) {
     closeLightbox();
   }
 }
-
 
 function openLightbox(ImageURL) {
   instance = basicLightbox.create(`
@@ -64,7 +59,6 @@ function openLightbox(ImageURL) {
 
   document.addEventListener('keydown', onEscapeKeyPress);
 }
-
 
 function closeLightbox() {
   instance.close();
